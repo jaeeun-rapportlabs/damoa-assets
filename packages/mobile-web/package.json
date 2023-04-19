@@ -1,7 +1,7 @@
 {
   "name": "damoa-assets-mobile-web",
   "type": "module",
-  "version": "1.0.10",
+  "version": "1.0.0",
   "main": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "description": "",
@@ -9,8 +9,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "build": "sudo rm -rf dist && ../../node_modules/.bin/rollup --c ./build/rollup.config.bundle.js",
-    "publish": "npm publish"
+    "build": "sudo rm -rf dist && ../../node_modules/.bin/rollup --c ./build/rollup.config.bundle.js"
   },
   "keywords": [],
   "author": "",

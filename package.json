@@ -1,18 +1,17 @@
 {
   "name": "damoa-assets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "workspaces": [
     "packages/*"
   ],
-  "private": true,
   "description": "",
   "scripts": {
     "update-version": "node bin/updateVersion.js",
     "fetch": "sudo rm -rf assets && node bin/fetch.js",
     "generate": "sudo rm -rf packages/app/src && sudo rm -rf packages/mobile-web/src && node bin/build.js",
     "build": "npm run build --workspaces",
-    "publish:libraries": "npm run publish --workspaces"
+    "publish:libraries": "npm publish --workspaces"
   },
   "keywords": [],
   "author": "",
