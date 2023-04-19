@@ -1,0 +1,1 @@
+export default {"88:130":{"name":"ic_minus_16","id":"88:130","file":"jWFF1R1r9A6PHixSuFdbv7","width":16,"height":16},"93:64":{"name":"ic_like_24","id":"93:64","file":"jWFF1R1r9A6PHixSuFdbv7","width":24,"height":24}}
