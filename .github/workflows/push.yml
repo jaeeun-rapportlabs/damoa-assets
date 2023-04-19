@@ -13,17 +13,20 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
-        node-version: '14.x'
-    - run: npm install
+        node-version: '16.x'
+    - name: Install npm
+      run: npm install -g npm@">=7.0.0"
+    - name: Install dependencies
+      run: npm install
     - run: npm run update-version
     - run: npm run fetch
       env:
         FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
         FIGMA_FILE_URL: ${{ secrets.FIGMA_FILE_URL }}
     - run: npm run generate
-    - run: npm build
+    - run: npm run build
     - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
     - run: npm run publish:libraries
       env:
