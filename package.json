@@ -12,7 +12,7 @@
     "fetch": "sudo rm -rf assets && node bin/fetch.js",
     "generate": "sudo rm -rf packages/app/src && sudo rm -rf packages/mobile-web/src && node bin/build.js",
     "build": "npm run build --workspaces",
-    "publish:libraries": "npm publish --workspaces=packages/**"
+    "publish:libraries": "npm publish --workspaces=packages/*"
   },
   "keywords": [],
   "author": "",
