@@ -1,4 +1,3 @@
-import babel from '@rollup/plugin-babel';
 import { resolve } from 'path';
 import copy from 'rollup-plugin-copy';
 import url from '@rollup/plugin-url'
@@ -22,10 +21,7 @@ export default [
           module: "./index.esm.js", // --> points to esm format entry point of individual component
           types: "./index.d.ts", // --> points to types definition file of individual component
         },
-      }),
-      babel({
-        exclude: 'node_modules/**',
-      }),
+      })
     ],
   },
   {
@@ -45,10 +41,7 @@ export default [
           module: "./index.esm.js", // --> points to esm format entry point of individual component
           types: "./index.d.ts", // --> points to types definition file of individual component
         },
-      }),
-      babel({
-        exclude: 'node_modules/**',
-      }),
+      })
     ],
   }
 ];

@@ -1,12 +1,15 @@
 {
   "name": "damoa-assets-mobile-web",
   "exports": {
-    ".": "./dist/"
+    "./png": {
+      "import": "./dist/png/index.esm.js"
+    },
+    "./svg": {
+      "import": "./dist/svg/index.esm.js"
+    }
   },
   "type": "module",
   "version": "1.0.4",
-  "main": "dist/index.esm.js",
-  "typings": "dist/index.d.ts",
   "description": "",
   "files": [
     "dist/**/*"
