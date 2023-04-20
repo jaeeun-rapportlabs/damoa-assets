@@ -2,13 +2,15 @@ import babel from '@rollup/plugin-babel';
 import { resolve } from 'path';
 import copy from 'rollup-plugin-copy';
 import url from '@rollup/plugin-url'
+import multi from '@rollup/plugin-multi-entry'
 
 export default [
   {
     input: 'src/png/index.ts',
-    output: [
-      { file: "dist/png/index.esm.js", format: 'es' }
-    ],
+    output: {
+      dir: 'dist/png',
+      format: 'es',
+    },
     plugins: [
       url(),
       copy({
@@ -23,9 +25,10 @@ export default [
   },
   {
     input: 'src/svg/index.ts',
-    output: [
-      { file: "dist/svg/index.esm.js", format: 'es' }
-    ],
+    output: {
+      dir: 'dist/svg',
+      format: 'es',
+    },
     plugins: [
       url(),
       copy({
