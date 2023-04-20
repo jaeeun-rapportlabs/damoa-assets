@@ -6,12 +6,12 @@ import generatePackageJson from "rollup-plugin-generate-package-json";
 export default [
   {
     input: 'src/png/index.ts',
-    output: { file: "dist/png/index.esm.js", format: 'es' },
+    output: { file: "png/index.esm.js", format: 'es' },
     plugins: [
       url(),
       copy({
         targets: [
-          { src: resolve('src/png/index.d.ts'), dest: resolve('dist/png') },
+          { src: resolve('src/png/index.d.ts'), dest: resolve('png') },
         ]
       }),
       generatePackageJson({
@@ -26,12 +26,12 @@ export default [
   },
   {
     input: 'src/svg/index.ts',
-    output: { file: "dist/svg/index.esm.js", format: 'es' },
+    output: { file: "svg/index.esm.js", format: 'es' },
     plugins: [
       url(),
       copy({
         targets: [
-          { src: resolve('src/svg/index.d.ts'), dest: resolve('dist/svg') },
+          { src: resolve('src/svg/index.d.ts'), dest: resolve('svg') },
         ]
       }),
       generatePackageJson({
