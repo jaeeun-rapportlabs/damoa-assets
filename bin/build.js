@@ -5,6 +5,8 @@ import { join } from 'path'
 const rootDir = join()
 const appSrcDir = join(rootDir, 'packages', 'app', 'src')
 const mobileWebSrcDir = join(rootDir, 'packages', 'mobile-web', 'src')
+const mobileWebPngSrcDir = join(rootDir, 'packages', 'mobile-web', 'src', 'png')
+const mobileWebSvgSrcDir = join(rootDir, 'packages', 'mobile-web', 'src', 'svg')
 
 const generateAppIndex = () => {
   if (!fs.existsSync(appSrcDir)) {
@@ -15,11 +17,14 @@ const generateAppIndex = () => {
 }
 
 const generateMobileWebIndex = () => {
-  if (!fs.existsSync(mobileWebSrcDir)) {
-    fs.mkdirSync(mobileWebSrcDir)
-  }
-  fs.writeFileSync(join(mobileWebSrcDir, 'index.ts'), '', 'utf-8');
-  fs.writeFileSync(join(mobileWebSrcDir, 'index.d.ts'), '', 'utf-8');
+  fs.mkdirSync(mobileWebSrcDir)
+  fs.mkdirSync(mobileWebPngSrcDir)
+  fs.mkdirSync(mobileWebSvgSrcDir)
+
+  fs.writeFileSync(join(mobileWebPngSrcDir, 'index.ts'), '', 'utf-8');
+  fs.writeFileSync(join(mobileWebPngSrcDir, 'index.d.ts'), '', 'utf-8');
+  fs.writeFileSync(join(mobileWebSvgSrcDir, 'index.ts'), '', 'utf-8');
+  fs.writeFileSync(join(mobileWebSvgSrcDir, 'index.d.ts'), '', 'utf-8');
 }
 
 const appendToApp = ({ name }) => {
@@ -40,36 +45,48 @@ const appendToApp = ({ name }) => {
 }
 
 const appendToMobileWeb = ({ name }) => {
-  /* 2. svg export 방식 */
-  const exportString = `import ${name}_svg from '../../../assets/svg/${name}.svg'\nexport const ${name} = ${name}_svg;\r\n`;
-  const exportTypeString = `export const ${name}: string;\n`;
+  /* 1. svg export 방식 */
+  const exportSvgString = `import ${name}_svg from '../../../../assets/svg/${name}.svg'\nexport const ${name} = ${name}_svg;\r\n`;
+  const exportSvgTypeString = `export const ${name}: string;\n`;
 
-  /* 3. png (+ @2x, @3x) export 방식 */
-  // const exportString = `
-  //   import ${name}_png from './png/${name}/${name}.png'
-  //   import ${name}_2x_png from './png/${name}/${name}@2x.png'
-  //   import ${name}_3x_png from './png/${name}/${name}@3x.png'
+  /* 2. png (+ @2x, @3x) export 방식 */
+  const exportPngString = `
+    import ${name}_png from '../../../../assets/png/${name}.png'
+    import ${name}_2x_png from '../../../../assets/png/${name}@2x.png'
+    import ${name}_3x_png from '../../../../assets/png/${name}@3x.png'
 
-  //   export const ${name} = ${name}_png
-  //   export const ${name}_2x = ${name}_2x_png
-  //   export const ${name}_3x = ${name}_3x_png\n
-  // `;
+    export const ${name} = ${name}_png
+    export const ${name}_2x = ${name}_2x_png
+    export const ${name}_3x = ${name}_3x_png\n
+  `;
 
-  // const exportTypeString = `
-  //   export const ${name}: string;
-  //   export const ${name}_2x: string;
-  //   export const ${name}_3x: string;\n
-  // `;
+  const exportPngTypeString = `
+    export const ${name}: string;
+    export const ${name}_2x: string;
+    export const ${name}_3x: string;\n
+  `;
 
   fs.appendFileSync(
-    join(mobileWebSrcDir, 'index.ts'),
-    exportString,
+    join(mobileWebSvgSrcDir, 'index.ts'),
+    exportSvgString,
     'utf-8',
   );
 
   fs.appendFileSync(
-    join(mobileWebSrcDir, 'index.d.ts'),
-    exportTypeString,
+    join(mobileWebSvgSrcDir, 'index.d.ts'),
+    exportSvgTypeString,
+    'utf-8',
+  );
+
+  fs.appendFileSync(
+    join(mobileWebPngSrcDir, 'index.ts'),
+    exportPngString,
+    'utf-8',
+  );
+
+  fs.appendFileSync(
+    join(mobileWebPngSrcDir, 'index.d.ts'),
+    exportPngTypeString,
     'utf-8',
   );
 }
