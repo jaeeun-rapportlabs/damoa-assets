@@ -1,0 +1,6 @@
+{
+  "name": "damoa-assets-mobile-web/png",
+  "private": true,
+  "module": "./index.ts",
+  "types": "./index.d.ts"
+}
