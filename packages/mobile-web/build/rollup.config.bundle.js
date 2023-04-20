@@ -22,7 +22,7 @@ export default [
         baseContents: {
           name: `damoa-assets-mobile-web/png`,
           private: true,
-          module: "./index.ts", // --> points to esm format entry point of individual component
+          module: "./index.js", // --> points to esm format entry point of individual component
           types: "./index.d.ts", // --> points to types definition file of individual component
         },
       }),
@@ -48,7 +48,7 @@ export default [
         baseContents: {
           name: `damoa-assets-mobile-web/svg`,
           private: true,
-          module: "./index.ts", // --> points to esm format entry point of individual component
+          module: "./index.js", // --> points to esm format entry point of individual component
           types: "./index.d.ts", // --> points to types definition file of individual component
         },
       }),
