@@ -100,10 +100,7 @@ async function main() {
             })
 
             const fileName = `${component.name}${option.scale > 1 ? `@${option.scale}x` : ''}.${option.format}`;
-            const componentOutputDir =
-            option.format === 'png'
-                ? join(outputDir, option.format, component.name)
-                : join(outputDir, option.format);
+            const componentOutputDir = join(outputDir, option.format)
 
             await ensureDir(componentOutputDir)
             await writeFile(

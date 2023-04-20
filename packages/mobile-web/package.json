@@ -1,7 +1,7 @@
 {
   "name": "damoa-assets-mobile-web",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "description": "",

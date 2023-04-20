@@ -23,7 +23,7 @@ const generateMobileWebIndex = () => {
 }
 
 const appendToApp = ({ name }) => {
-  const exportString = `export const ${name} = require('./png/${name}/${name}.png');\r\n`;
+  const exportString = `export const ${name} = require('./png/${name}.png');\r\n`;
   const exportTypeString = `declare const ${name}: number;\nexport { ${name} };\r\n`;
 
   fs.appendFileSync(
