@@ -4,11 +4,14 @@
   "version": "1.0.16",
   "description": "",
   "files": [
-    "png/**/*",
-    "svg/**/*"
+    "dist"
   ],
+  "exports": {
+    "./png": "./dist/png/index.esm.js",
+    "./svg": "./dist/svg/index.esm.js"
+  },
   "scripts": {
-    "build": "sudo rm -rf png && sudo rm -rf svg && ../../node_modules/.bin/rollup --c ./build/rollup.config.bundle.js"
+    "build": "sudo rm -rf dist && ../../node_modules/.bin/rollup --c ./build/rollup.config.bundle.js"
   },
   "keywords": [],
   "author": "",
