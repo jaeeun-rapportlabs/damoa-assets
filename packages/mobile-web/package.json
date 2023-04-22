@@ -8,9 +8,14 @@
     "dist/svg/**/*"
   ],
   "exports": {
-    ".": "./dist/",
-    "./png": "./dist/png/index.esm.js",
-    "./svg": "./dist/svg/index.esm.js"
+    "./png": {
+      "import": "./dist/png/index.esm.js",
+      "require": "./dist/png/index.cjs.js"
+    },
+    "./svg": {
+      "import": "./dist/svg/index.esm.js",
+      "require": "./dist/svg/index.cjs.js"
+    }
   },
   "scripts": {
     "build": "sudo rm -rf dist && ../../node_modules/.bin/rollup --c ./build/rollup.config.bundle.js"
