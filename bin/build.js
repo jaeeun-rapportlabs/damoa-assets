@@ -22,9 +22,9 @@ const generateMobileWebIndex = () => {
   fs.mkdirSync(mobileWebSvgSrcDir)
 
   fs.writeFileSync(join(mobileWebPngSrcDir, 'index.ts'), '', 'utf-8');
-  fs.writeFileSync(join(mobileWebPngSrcDir, 'index.d.ts'), '', 'utf-8');
+  fs.writeFileSync(join(mobileWebPngSrcDir, 'index.d.ts'), `declare module 'damoa-assets-mobile-web/png' {`, 'utf-8');
   fs.writeFileSync(join(mobileWebSvgSrcDir, 'index.ts'), '', 'utf-8');
-  fs.writeFileSync(join(mobileWebSvgSrcDir, 'index.d.ts'), '', 'utf-8');
+  fs.writeFileSync(join(mobileWebSvgSrcDir, 'index.d.ts'), `declare module 'damoa-assets-mobile-web/svg' {`, 'utf-8');
 }
 
 const appendToApp = ({ name }) => {
@@ -101,3 +101,15 @@ Object
     appendToApp({ name })
     appendToMobileWeb({ name })
   })
+
+  fs.appendFileSync(
+    join(mobileWebSvgSrcDir, 'index.d.ts'),
+    `}`,
+    'utf-8',
+  );
+
+  fs.appendFileSync(
+    join(mobileWebPngSrcDir, 'index.d.ts'),
+    `}`,
+    'utf-8',
+  );
