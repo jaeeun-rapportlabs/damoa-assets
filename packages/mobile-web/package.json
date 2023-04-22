@@ -4,9 +4,11 @@
   "version": "1.0.16",
   "description": "",
   "files": [
-    "dist"
+    "dist/png/**/*",
+    "dist/svg/**/*"
   ],
   "exports": {
+    ".": "./dist/",
     "./png": "./dist/png/index.esm.js",
     "./svg": "./dist/svg/index.esm.js"
   },
