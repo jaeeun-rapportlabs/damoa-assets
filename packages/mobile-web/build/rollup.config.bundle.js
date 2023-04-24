@@ -9,6 +9,24 @@ export default [
     input: 'src/png/index.ts',
     output: { file: "png/index.esm.js", format: 'es' },
     plugins: [
+      {
+        name: 'png-resolver',
+        resolveId(source, importer) {
+          if (source.endsWith('.png')) {
+            return resolve(dirname(importer), source);
+          }
+        },
+        load(id) {
+          if (id.endsWith('.png')) {
+            const referenceId = this.emitFile({
+              type: 'asset',
+              name: basename(id),
+              source: fs.readFileSync(id)
+            });
+            return `export default import.meta.ROLLUP_FILE_URL_${referenceId};`;
+          }
+        }
+      },
       url(),
       copy({
         targets: [
