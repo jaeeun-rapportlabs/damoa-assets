@@ -1,7 +1,6 @@
 import babel from '@rollup/plugin-babel';
 import { resolve } from 'path';
 import copy from 'rollup-plugin-copy';
-import url from '@rollup/plugin-url'
 
 const rootDir = resolve(process.cwd(), '..', '..')
 
@@ -11,7 +10,6 @@ export default {
     { file: "dist/index.cjs.js", format: 'cjs' }
   ],
   plugins: [
-    url(),
     copy({
       targets: [
         { src: resolve('src/index.d.ts'), dest: resolve('dist/') },
