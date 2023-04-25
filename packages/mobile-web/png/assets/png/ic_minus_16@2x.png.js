@@ -1,3 +1,3 @@
-var ic_minus_16_2x_png = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABZSURBVHgB7dChDYBQDIThK2E2FBOwDG8aPAbDErABk1CQQFLXBPH+T1S0FZeTAAConUWHrh9GJfNT87pM23PXRs9mVpTNdNzzFaDRz8IG3L0ombt2AQCAjwttSg+M8GtdbAAAAABJRU5ErkJggg==";
+var ic_minus_16_2x_png = new URL('../ic_minus_16@2x-d745060b.png', import.meta.url).href;
 
 export { ic_minus_16_2x_png as default };

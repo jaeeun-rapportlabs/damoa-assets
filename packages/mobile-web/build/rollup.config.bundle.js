@@ -10,11 +10,28 @@ export default [
     output: {
       dir: "png",
       format: 'es',
-      preserveModules: true, // indicate not create a single-file
-      preserveModulesRoot: 'src/png', // optional but useful to create a more plain folder structure
+      preserveModules: true,
+      preserveModulesRoot: 'src/png',
     },
     plugins: [
-      url(),
+      {
+        name: 'png-resolver',
+        resolveId(source, importer) {
+          if (source.endsWith('.png')) {
+            return resolve(dirname(importer), source);
+          }
+        },
+        load(id) {
+          if (id.endsWith('.png')) {
+            const referenceId = this.emitFile({
+              type: 'asset',
+              name: basename(id),
+              source: fs.readFileSync(id)
+            });
+            return `export default import.meta.ROLLUP_FILE_URL_${referenceId};`;
+          }
+        }
+      },
       copy({
         targets: [
           { src: resolve('src/png/index.d.ts'), dest: resolve('png') },
@@ -23,9 +40,10 @@ export default [
       generatePackageJson({
         baseContents: {
           name: `damoa-assets-mobile-web/png`,
+          type: "module",
           private: true,
-          module: "./index.js", // --> points to esm format entry point of individual component
-          types: "./index.d.ts", // --> points to types definition file of individual component
+          module: "./index.js",
+          types: "./index.d.ts",
         },
       })
     ],
@@ -35,8 +53,8 @@ export default [
     output: {
       dir: "svg",
       format: 'es',
-      preserveModules: true, // indicate not create a single-file
-      preserveModulesRoot: 'src/svg', // optional but useful to create a more plain folder structure
+      preserveModules: true,
+      preserveModulesRoot: 'src/svg',
     },
     plugins: [
       url(),
@@ -48,9 +66,10 @@ export default [
       generatePackageJson({
         baseContents: {
           name: `damoa-assets-mobile-web/svg`,
+          type: "module",
           private: true,
-          module: "./index.js", // --> points to esm format entry point of individual component
-          types: "./index.d.ts", // --> points to types definition file of individual component
+          module: "./index.js",
+          types: "./index.d.ts",
         },
       })
     ],

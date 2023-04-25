@@ -1,3 +1,3 @@
-var ic_minus_16_png = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAA9SURBVHgB7csxDQAgEAPAQvDGggPMoAYFDGwERUgoYSM//fz5m9o0BZwB4S+51KU7cc/R28tJLCpkPHCWXA1uCPbnal1gAAAAAElFTkSuQmCC";
+var ic_minus_16_png = new URL('../ic_minus_16-6ecaf360.png', import.meta.url).href;
 
 export { ic_minus_16_png as default };
