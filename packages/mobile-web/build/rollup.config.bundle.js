@@ -25,7 +25,7 @@ export default [
           if (id.endsWith('.png')) {
             const referenceId = this.emitFile({
               type: 'asset',
-              name: basename(id),
+              name: `png/${basename(id)}`,
               source: fs.readFileSync(id)
             });
             return `export default import.meta.ROLLUP_FILE_URL_${referenceId};`;
