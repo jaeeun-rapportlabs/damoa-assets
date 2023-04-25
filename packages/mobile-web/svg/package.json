@@ -1,6 +1,6 @@
 {
   "name": "damoa-assets-mobile-web/svg",
   "private": true,
-  "module": "./index.esm.js",
+  "module": "./index.js",
   "types": "./index.d.ts"
 }

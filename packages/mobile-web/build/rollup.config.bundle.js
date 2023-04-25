@@ -7,26 +7,14 @@ import generatePackageJson from "rollup-plugin-generate-package-json";
 export default [
   {
     input: 'src/png/index.ts',
-    output: { file: "png/index.esm.js", format: 'es' },
+    output: {
+      dir: "png",
+      format: 'es',
+      preserveModules: true, // indicate not create a single-file
+      preserveModulesRoot: 'src/png', // optional but useful to create a more plain folder structure
+    },
     plugins: [
-      {
-        name: 'png-resolver',
-        resolveId(source, importer) {
-          if (source.endsWith('.png')) {
-            return resolve(dirname(importer), source);
-          }
-        },
-        load(id) {
-          if (id.endsWith('.png')) {
-            const referenceId = this.emitFile({
-              type: 'asset',
-              name: basename(id),
-              source: fs.readFileSync(id)
-            });
-            return `export default import.meta.ROLLUP_FILE_URL_${referenceId};`;
-          }
-        }
-      },
+      url(),
       copy({
         targets: [
           { src: resolve('src/png/index.d.ts'), dest: resolve('png') },
@@ -36,7 +24,7 @@ export default [
         baseContents: {
           name: `damoa-assets-mobile-web/png`,
           private: true,
-          module: "./index.esm.js", // --> points to esm format entry point of individual component
+          module: "./index.js", // --> points to esm format entry point of individual component
           types: "./index.d.ts", // --> points to types definition file of individual component
         },
       })
@@ -44,7 +32,12 @@ export default [
   },
   {
     input: 'src/svg/index.ts',
-    output: { file: "svg/index.esm.js", format: 'es' },
+    output: {
+      dir: "svg",
+      format: 'es',
+      preserveModules: true, // indicate not create a single-file
+      preserveModulesRoot: 'src/svg', // optional but useful to create a more plain folder structure
+    },
     plugins: [
       url(),
       copy({
@@ -56,7 +49,7 @@ export default [
         baseContents: {
           name: `damoa-assets-mobile-web/svg`,
           private: true,
-          module: "./index.esm.js", // --> points to esm format entry point of individual component
+          module: "./index.js", // --> points to esm format entry point of individual component
           types: "./index.d.ts", // --> points to types definition file of individual component
         },
       })

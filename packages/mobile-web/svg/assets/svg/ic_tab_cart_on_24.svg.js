@@ -1,0 +1,3 @@
+var ic_tab_cart_on_24_svg = "data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M19%206.25L20%2021.25H4L5%206.25H19Z%22%20fill%3D%22black%22%20stroke%3D%22black%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M9%2010.25H15%22%20stroke%3D%22white%22%20stroke-width%3D%221.5%22%2F%3E%3Cpath%20d%3D%22M15%204.75V6.25H9V4.75C9%203.09315%2010.3431%201.75%2012%201.75C13.6569%201.75%2015%203.09315%2015%204.75Z%22%20stroke%3D%22black%22%20stroke-width%3D%221.5%22%2F%3E%3C%2Fsvg%3E";
+
+export { ic_tab_cart_on_24_svg as default };

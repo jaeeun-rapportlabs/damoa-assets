@@ -1,0 +1,3 @@
+var ic_tab_profile_24_svg = "data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M12%2010.5L2.75%2016.5V21.25H21.25V16.5L13%2011.1L12%2010.5ZM12%2010.5C10.5%209.5%208.5%207.9%208.5%205.5C8.5%203.25%2010%201.75%2012%201.75C14%201.75%2015.5%203.25%2015.5%205.5C15.5%208.04951%2013.5%209.5%2012%2010.5Z%22%20stroke%3D%22black%22%20stroke-width%3D%221.5%22%2F%3E%3C%2Fsvg%3E";
+
+export { ic_tab_profile_24_svg as default };
