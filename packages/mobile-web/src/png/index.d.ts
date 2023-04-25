@@ -19,3 +19,8 @@
     export const ic_tab_profile_24_3x: string;
 
   
+    export const ic_kakaosymbol_circle_24: string;
+    export const ic_kakaosymbol_circle_24_2x: string;
+    export const ic_kakaosymbol_circle_24_3x: string;
+
+  
