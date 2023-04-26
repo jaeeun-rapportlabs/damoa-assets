@@ -25,13 +25,14 @@ export default [
           if (id.endsWith('.png')) {
             const referenceId = this.emitFile({
               type: 'asset',
-              name: `png/${basename(id)}`,
+              name: `file/${basename(id)}`,
               source: fs.readFileSync(id)
             });
             return `export default import.meta.ROLLUP_FILE_URL_${referenceId};`;
           }
         }
       },
+      url(),
       copy({
         targets: [
           { src: resolve('src/png/index.d.ts'), dest: resolve('png') },
