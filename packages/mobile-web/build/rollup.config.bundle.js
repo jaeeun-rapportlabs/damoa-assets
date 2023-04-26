@@ -12,6 +12,8 @@ export default [
       format: 'es',
       preserveModules: true,
       preserveModulesRoot: 'src/png',
+      entryFileNames: 'assets/../[name].js',
+      assetFileNames: 'assets/png/[name][extname]', // Customize output path for .png files
     },
     plugins: [
       {
@@ -25,7 +27,7 @@ export default [
           if (id.endsWith('.png')) {
             const referenceId = this.emitFile({
               type: 'asset',
-              name: `file/${basename(id)}`,
+              name: `assets/../png/../raw/${basename(id)}`,
               source: fs.readFileSync(id)
             });
             return `export default import.meta.ROLLUP_FILE_URL_${referenceId};`;
