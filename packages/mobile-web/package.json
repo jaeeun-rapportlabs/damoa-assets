@@ -1,7 +1,7 @@
 {
   "name": "damoa-assets-mobile-web",
   "type": "module",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "description": "",
   "files": [
     "png/**/*",
