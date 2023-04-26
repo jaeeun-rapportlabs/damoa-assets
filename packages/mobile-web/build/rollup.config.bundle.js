@@ -46,6 +46,7 @@ export default [
           main: "./index.js",
           module: "./index.js",
           types: "./index.d.ts",
+          sideEffects: false
         },
       })
     ],
